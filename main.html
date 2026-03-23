@@ -17,344 +17,16 @@
 
 
   <title>Hiromi & Choi Wedding</title>
-  
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://cdn.jsdelivr.net/gh/webfontworld/maru-buri/MaruBuri.css" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f6f6f7;
-      --card: rgba(255,255,255,0.88);
-      --text: #1f2328;
-      --muted: #6b7280;
-      --line: rgba(0,0,0,0.08);
-      --accent: #f2c300;
-      --accent-soft: rgba(242,195,0,0.14);
-      --shadow: 0 18px 50px rgba(0,0,0,0.08);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-   body {
-    margin: 0;
-    font-family: "MaruBuri", "Apple SD Gothic Neo", "Malgun Gothic", serif;
-    color: var(--text);
-    background:
-      radial-gradient(circle at top, #ffffff 0%, #f8f8f8 35%, #f2f2f3 100%);
-    line-height: 1.75;
-  }
-
-    .wrap {
-      width: min(100%, 900px);
-      margin: 0 auto;
-      padding: 0 18px 48px;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0 0 34px 34px;
-      box-shadow: var(--shadow);
-      background: #fff;
-    }
-
-    .hero img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .hero-badge {
-      position: absolute;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.7);
-      border-radius: 999px;
-      padding: 10px 18px;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    section { margin-top: 22px; }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      overflow: hidden;
-    }
-
-    .message { padding: 34px 28px; text-align: center; }
-   .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #8a6d00;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    h1, h2, h3, p { margin: 0; }
-    .message h1 {
-      margin-top: 1rem;
-      font-size: clamp(24px, 5vw, 42px);
-      line-height: 1.4;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-    }
-
-    .message h3 {
-      margin-top: 14px;
-      font-size: 20px;
-      line-height: 1.6;
-      font-weight: 600;
-      color: #2f343b;
-    }
-
-    .message .lead {
-      margin-top: 18px;
-      font-size: 17px;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    .message .sub {
-      margin-top: 18px;
-      font-size: 0.6rem;
-      line-height: 1.95;
-      color: #3a3f45;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 24px;
-    }
-    .info-item {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(0,0,0,0.05);
-      text-align: left;
-    }
-    .info-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
-    .info-value { font-size: 16px; font-weight: 700; }
-
-    .section-head {
-      padding: 28px 28px 8px;
-    }
-    .section-head h2 { 
-      font-size: 1.7rem;
-      letter-spacing: -0.03em;
-    }
-
-    .section-head p { 
-      margin-top: 8px; 
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .calendar-wrap { padding: 8px 20px 28px; }
-    .calendar {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: #fff;
-    }
-    .calendar-header {
-      padding: 18px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(180deg, #fffef5, #fff);
-      border-bottom: 1px solid var(--line);
-    }
-    .calendar-header strong { font-size: 20px; }
-    .calendar-header span { color: var(--muted); font-size: 14px; }
-    .weekdays, .days {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
-    }
-    .weekdays div {
-      padding: 14px 8px;
-      font-size: 13px;
-      color: var(--muted);
-      border-bottom: 1px solid var(--line);
-      background: #fcfcfc;
-    }
-    .days div {
-      padding: 16px 8px;
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-right: 1px solid rgba(0,0,0,0.04);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      font-weight: 600;
-      color: #4b5563;
-      position: relative;
-      background: #fff;
-    }
-    .days div:nth-child(7n) { border-right: none; }
-    .days .empty { color: transparent; background: #fafafa; }
-    .days .highlight {
-      color: #111827;
-      font-weight: 800;
-    }
-    .days .highlight span {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--accent);
-      box-shadow: 0 8px 20px rgba(242,195,0,0.35);
-    }
-    .memo {
-      margin-top: 0.7rem;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      border-radius: 20px;
-      background: var(--accent-soft);
-      color: #5f4b00;
-      font-weight: 700;
-      flex-wrap: wrap;
-    }
-    .memo small { 
-      font-size: 13px; 
-      color: #8a6d00; font-weight: 600;
-      font-size: 0.7rem; 
-    }
-
-    .map-wrap { padding: 8px 20px 28px; }
-    .map-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    #map {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      min-height: 320px;
-      background: linear-gradient(180deg, #fffef7, #fff);
-    }
-    .map-note {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #fffef7, #fff);
-      color: var(--muted);
-      font-size: 0.7rem;
-    }
-    .map-note strong {
-      color: #7a6200;
-    }
-    .map-body { padding: 20px; }
-    .address { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-    .address-sub { margin-top: 10px; color: var(--muted); font-size: 11px; }
-    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-    .btn {
-      appearance: none;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 18px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 14px;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: #111827; color: #fff; box-shadow: 0 10px 24px rgba(17,24,39,0.18); }
-    .btn-secondary { background: var(--accent-soft); color: #7a6200; border: 1px solid rgba(242,195,0,0.24); }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      padding: 26px 0 12px;
-    }
-
-    @media (max-width: 640px) {
-      .wrap { padding: 0 14px 36px; }
-      .message { padding: 28px 20px; }
-      .section-head { padding: 24px 20px 8px; }
-      .calendar-wrap, .map-wrap { padding: 8px 14px 20px; }
-      .info-grid { grid-template-columns: 1fr; }
-      .message .lead { font-size: 11px; }
-      #map { aspect-ratio: 4 / 3; min-height: 280px; }
-    }
-
-    .couple {
-      margin-top: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--text);
-    }
-
-    .couple .role {
-      font-size: 14px;
-      color: var(--muted);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    .couple .name {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .couple .divider {
-      color: #c5a100;
-      font-weight: 700;
-      margin: 0 4px;
-    }
-
-    @media (max-width: 640px) {
-      .couple {
-        gap: 8px;
-        font-size: 16px;
-      }
-
-      .couple .role {
-        font-size: 13px;
-      }
-
-      .couple .name {
-        font-size: 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./script.js"></script>
+  
 </head>
 <body>
   <div class="wrap">
     <header class="hero">
-      <img src="./JS_01831-0.jpg" alt="커버 이미지" class="cover" />
+      <img src="./img/img0.jpg" alt="커버 이미지" class="cover" />
     </header>
 
     <section class="card message">
@@ -368,7 +40,23 @@
       <span class="role">신부</span>
       <span class="name">최히로미</span>
     </div>
+    <section class="album-section section">
+      <div class="section-label">GALLERY</div>
+      <h2 class="section-title">우리의 순간</h2>
+      <p class="section-desc">작은 장면들을 모아 두었습니다.</p>
 
+      <div class="album-grid">
+        <img src="./img/img1.jpg" alt="웨딩 사진 2" class="album-item" />
+        <img src="./img/img2.jpg" alt="웨딩 사진 3" class="album-item" />
+        <img src="./img/img3.jpg" alt="웨딩 사진 4" class="album-item" />
+        <img src="./img/thumbnail.jpg" alt="웨딩 사진 6" class="album-item" />
+      </div>
+    </section>
+
+    <div class="album-modal" id="albumModal">
+      <button class="album-close" id="albumClose" aria-label="닫기">×</button>
+      <img id="albumModalImg" src="" alt="확대 사진" />
+    </div>
     <p class="sub">
       따뜻한 마음으로 서로의 앞날을 약속하는 자리에<br />
       귀한 걸음으로 함께해 주시면 더없는 기쁨이 되겠습니다.
@@ -450,71 +138,33 @@
       </div>
     </section>
 
+    <section class="account-section section">
+      <div class="section-label">계좌번호</div>
+      <p class="section-desc">
+        참석이 어려우시더라도 따뜻한 마음에 깊이 감사드립니다.
+      </p>
+
+      <div class="account-list">
+        <div class="account-card">
+          <div class="account-role">신랑 아버지</div>
+          <div class="account-name">최영환</div>
+          <div class="account-bank">카카오뱅크 3333-35-4793890</div>
+          <button class="copy-btn" data-account="카카오뱅크 3333354793890">계좌번호 복사</button>
+        </div>
+
+        <div class="account-card">
+          <div class="account-role">신랑 어머니</div>
+          <div class="account-name">정인숙</div>
+          <div class="account-bank">농협 3520011412573</div>
+          <button class="copy-btn" data-account="농협 3520011412573">계좌번호 복사</button>
+        </div>
+      </div>
+    </section>
     <footer>
       함께해 주시는 마음을 오래도록 소중히 간직하겠습니다.
     </footer>
   </div>
-  <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_NAVER_MAP_CLIENT_ID&submodules=geocoder"></script>
-  <script>
-    (function () {
-      const venueAddress = '부산광역시 수영구 민락수변로239번길 14 3층';
-      const venueName = 'Wedding Hall';
-      const mapElement = document.getElementById('map');
 
-      function showFallback(message) {
-        mapElement.innerHTML = '<div style="height:100%;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#6b7280;background:linear-gradient(180deg,#fffef7,#fff)">' + message + '</div>';
-      }
-
-      if (!window.naver || !naver.maps) {
-        showFallback('네이버 지도 API가 아직 설정되지 않았습니다. HTML의 API 키를 입력해 주세요.');
-        return;
-      }
-
-      const defaultCenter = new naver.maps.LatLng(35.1548, 129.1256);
-      const map = new naver.maps.Map('map', {
-        center: defaultCenter,
-        zoom: 16,
-        zoomControl: true,
-        zoomControlOptions: {
-          position: naver.maps.Position.TOP_RIGHT
-        }
-      });
-
-      naver.maps.Service.geocode({ query: venueAddress }, function (status, response) {
-        if (status !== naver.maps.Service.Status.OK) {
-          showFallback('지도를 불러왔지만 주소를 찾지 못했습니다. 주소 또는 API 설정을 확인해 주세요.');
-          return;
-        }
-
-        const result = response.v2;
-        if (!result || !result.addresses || !result.addresses.length) {
-          showFallback('검색 결과가 없습니다. 주소를 다시 확인해 주세요.');
-          return;
-        }
-
-        const item = result.addresses[0];
-        const position = new naver.maps.LatLng(item.y, item.x);
-
-        map.setCenter(position);
-
-        const marker = new naver.maps.Marker({
-          map: map,
-          position: position
-        });
-
-        const infoWindow = new naver.maps.InfoWindow({
-          content: [
-            '<div style="padding:12px 14px;min-width:220px;font-family:-apple-system,BlinkMacSystemFont,Apple SD Gothic Neo,Pretendard,Noto Sans KR,sans-serif;">',
-            '<strong style="display:block;font-size:15px;margin-bottom:6px;">' + venueName + '</strong>',
-            '<span style="font-size:13px;color:#4b5563;line-height:1.5;">' + venueAddress + '</span>',
-            '</div>'
-          ].join('')
-        });
-
-        infoWindow.open(map, marker);
-      });
-    })();
-  </script>
 </body>
 </html>
 
